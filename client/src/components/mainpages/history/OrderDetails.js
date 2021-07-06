@@ -46,7 +46,7 @@ function OrderDetails() {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Productos: </th>
+                        <th>Nombre producto: </th>
                         <th>Cantidad: </th>
                         <th>Precio: </th>
                     </tr>
@@ -58,7 +58,7 @@ function OrderDetails() {
                             <td><img src={item.images.url} alt="" /></td>
                             <td>{item.name}</td>
                             <td>{item.quantity}</td>
-                            <td>$ {item.price * item.quantity}</td>
+                            <td>{item.price * item.quantity} €</td>
                         </tr>
                         ))
                     }
