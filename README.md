@@ -5,6 +5,8 @@
 
 ***@LeXa Shop*** consiste en un proyecto de tienda on-line de ropa, realizado dentro del bootcamp de Let´s Coder, mediante cual el usuario podrá ver todas las categorias y todos los productos disponibles en la tienda, podrá registrarse, hacer LogIn, añadir productos al carrito, comprar y verificar sus pedidos realizados. 
 
+Para visualizar el proyecto, pulsa [aquí](https://https://alexa-shop.herokuapp.com/)
+
 ## Características de la aplicación 
 
 - Sistema de inicio de sesión / registro
