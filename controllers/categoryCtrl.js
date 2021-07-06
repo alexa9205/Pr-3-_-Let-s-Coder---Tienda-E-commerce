@@ -14,7 +14,7 @@ const categoryCtrl = {
         try {
             const {name} = req.body;
             const category = await Category.findOne({name})
-            if(category) return res.status(400).json({msg: "<Esta categoria ya esta creada!"})
+            if(category) return res.status(400).json({msg: "Esta categoria ya esta creada!"})
 
             const newCategory = new Category({name})
 

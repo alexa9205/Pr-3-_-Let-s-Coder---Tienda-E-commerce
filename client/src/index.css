@@ -40,6 +40,9 @@ button{
 
 @import url("./components/mainpages/products/products.css");
 
+/*----------- Not Found ---------------------*/
+@import url("./components/mainpages/utils/not_found/notfound.css");
+
 /* ---------------- Detail Product --------------- */
 @import url("./components/mainpages/detailProduct/detailProduct.css");
 

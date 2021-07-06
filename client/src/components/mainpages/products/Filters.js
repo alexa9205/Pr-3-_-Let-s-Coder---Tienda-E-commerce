@@ -31,7 +31,7 @@ function Filters() {
                 </select>
             </div>
 
-            <input type="text" value={search} placeholder="Busque la prenda que desea comprar!"
+            <input type="text" value={search} placeholder="Introduzca el nombre de la prenda que desea comprar"
             onChange={e => setSearch(e.target.value.toLowerCase())} />
 
             <div className="row sort">
@@ -39,7 +39,6 @@ function Filters() {
                 <select value={sort} onChange={e => setSort(e.target.value)} >
                     <option value=''>Novedades</option>
                     <option value='sort=oldest'>Antiguo</option>
-                    <option value='sort=-sold'>Mejor venidod</option>
                     <option value='sort=-price'>Precio: Mayor-Menor</option>
                     <option value='sort=price'>Precio: Menor-Mayor</option>
                 </select>

@@ -60,6 +60,8 @@
 .load_more button{
     padding: 10px 25px;
     margin-bottom: 20px;
-    border: 1px solid #555;
-    text-transform: capitalize;
+    border: 2px solid #555;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: rgba(91, 91, 117, 0.479);
 }

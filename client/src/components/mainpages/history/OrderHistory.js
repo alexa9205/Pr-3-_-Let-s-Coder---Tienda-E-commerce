@@ -31,16 +31,16 @@ function OrderHistory() {
 
     return (
         <div className="history-page">
-            <h2>History</h2>
+            <h2>MIS PEDIDOS</h2>
 
-            <h4>Tienes {history.length} pedidos</h4>
+            <h4>Tienes {history.length} pedidos realizados en nuestra tienda</h4>
 
             <table>
                 <thead>
                     <tr>
                         <th>Payment ID</th>
-                        <th>Fecha compra: </th>
-                        <th></th>
+                        <th>Fecha compra</th>
+                        <th>Ver pedidos</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,7 +49,7 @@ function OrderHistory() {
                             <tr key={items._id}>
                                 <td>{items.paymentID}</td>
                                 <td>{new Date(items.createdAt).toLocaleDateString()}</td>
-                                <td><Link to={`/history/${items._id}`}>View</Link></td>
+                                <td><Link to={`/history/${items._id}`}>Ver pedido</Link></td>
                             </tr>
                         ))
                     }

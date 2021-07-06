@@ -119,7 +119,7 @@ const userCtrl = {
     addCart: async (req, res) =>{
         try {
             const user = await Users.findById(req.user.id)
-            if(!user) return res.status(400).json({msg: "User does not exist."})
+            if(!user) return res.status(400).json({msg: "El usuario no existe!"})
 
             await Users.findOneAndUpdate({_id: req.user.id}, {
                 cart: req.body.cart

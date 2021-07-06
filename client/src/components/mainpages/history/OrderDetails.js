@@ -19,6 +19,7 @@ function OrderDetails() {
 
 
     if(orderDetails.length === 0) return null;
+    console.log(orderDetails)
 
     return (
         <div className="history-page">

@@ -49,16 +49,18 @@
     text-transform: uppercase;
     color: white;
     font-weight: 600;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     padding: 6px;
 }
 #btn_buy{
-    background: #555;
+    background: rgb(39, 37, 37);
     margin-right: 5px;
+    border-radius: 10%;
 }
 #btn_view{
-    background: teal;
+    background: rgb(15, 111, 134);
     margin-left: 5px;
+    border-radius: 10%;
 }
 .product_card input{
     position: absolute;

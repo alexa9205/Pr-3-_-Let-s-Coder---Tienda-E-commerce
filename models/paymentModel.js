@@ -26,10 +26,6 @@ const paymentSchema = new mongoose.Schema({
         type: Array,
         default: []
     },
-    status:{
-        type: Boolean,
-        default: false
-    }
 }, {
     timestamps: true
 })
