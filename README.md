@@ -44,9 +44,10 @@
        
   - Crear, editar y borrar categorias; 
   - Ver todos los pedidos que hicieron los usuarios de su tienda 
+
+![ADMINISTRADOR](https://user-images.githubusercontent.com/81650755/124661289-95427f80-dea7-11eb-8fd4-da9eba6d880f.jpg)
+
   
-
-
   
   ### El proyecto esta realizado en dos fases :  BACKEND y FRONTEND
   
@@ -56,3 +57,134 @@
   - La base de datos esta alojada en `MongoAtlas`
   - El servidor fue creado con `Express`
   - El puerto del servidor es: 5000
+
+
+ ##### MODELOS DE DATOS Y COMO INTERACCIONAN 
+ 
+ ![ADMINISTRADOR (2)](https://user-images.githubusercontent.com/81650755/124661638-0da94080-dea8-11eb-83d3-625be93f637b.jpg)
+ 
+ 
+  ## RUTAS 
+  
+  ### Usuario 
+  
+  - `.post(/user/register)` - Ruta abierta para que el usario se pueda registrar en la tienda
+  - `.post(/user/login)` - Ruta abierta donde el usuario se puede loguear en su cuenta
+  - `.get(/user/logout)` - Ruta abierta para hacer el logout de la cuenta
+  - `.get(/user/refresh_token)` - Ruta para coger el refresh_token 
+  - `.get(/user/infor)` - Ruta privada para coger información del usuario
+  - `.get(/user/history)` - Ruta privada para coger el historial de pedidos 
+  - `.patch(/user/addcart)` - Ruta privada para añadir productos al carrito
+ 
+  ### Productos
+  - `.get(/api/products)` - Ruta abierta donde cualquier utilizador de la pagina web, sin necesidad de estar logueado puede ver todos los productos disponibles
+  - `.post(/api/products)` - Ruta privada que puede ser utilizada solo por el admin para añadir productos a la tienda
+  - `.put(/api/products/:id)` - Ruta privada utilizada solo por el admin para actualizar los productos de la tienda 
+  - `.delete(/api/products/:id)` - Ruta privada utilizada solo por el admin para eliminar productos de la tienda 
+ 
+
+  ### Categorias 
+  - `.get(/categories/category)` - Ruta abierta para cualquier utilizador de la tienda, sin necesidad de estar logueado para ver todas las categorias disponible
+  - `.post(/categories/category)` - Ruta privada donde solo el usuario que tenga rol de Admin puede acceder para crear categorias 
+  - `.put(/categories/category/:id)` - Ruta privada donde solo el usuario que tenga rol de Admin puede acceder para actualizar las categorias
+  - `.delete(/categories/category/:id)` - Ruta privada donde solo el usuario que tenga rol de Admin puede acceder para borrar las categorias
+
+  
+  
+  ### Fotos
+  - `.post(/api/upload)` - Ruta privada, utilizada solo para el admin para validación y subida de fotos de los productos a cloudinary
+  - `.delete(/api/destroy)` - Ruta privada, utilizada solo para el admin para eliminar las fotos de los productos subidas a cloudinary
+
+  
+  ### Payment
+  - `.get(/api/payment)` - Ruta privada para el admin, cogé todos los pedidos hechos en la tienda por todos los usuarios
+  - `.post(/api/payment)` - Ruta privada para el usuario, para pagar los pedidos
+
+
+#### Para desarrolladores: 
+#### Install dependencies for server 
+##### `npm install`
+
+#### Install dependencies for client
+##### cd client ---> `npm install`
+
+#### Connect to your mongodb and add info in .env
+
+#### Add your paypal client id in client/src/components/mainpages/cart/PaypalButton.js
+
+#### Run the client & server with concurrently
+##### `npm run dev`
+
+#### Run the Express server only
+##### `npm run server`
+
+#### Run the React client only
+##### `npm run client`
+
+#### Server runs on http://localhost:5000 and client on http://localhost:3000
+
+
+## FASE II: FRONTEND 
+
+Basado en componentes desarrollados con `React`.<br>
+Renderizado con `React-dom`<br>
+Llamadas a la base de datos con `axios`.<br>
+Enrutamiento a través del browser con `react-router-dom`.<br>
+Metodo de pago con `react-paypal-express-checkout`.<br>
+Estilo con `CSS3`.<br>
+
+### COMPONENTES 
+- Header
+- MainPages / auth / Login - Register
+- MainPages / cart / Cart - PayPalButton
+- Mainpages / categories / Categories
+- Mainpages / createProduct / CreateProduct
+- Mainpages / detailProduct / DetailProduct
+- Mainpages / history / OrderDetails - OrderHistory
+- Mainpages / products / Filter - LoadMore - Products
+- Mainpages / utils / Loading - NotFound - ProductItem/BtnRender
+
+
+### RUTAS DEL FRONTEND 
+
+`"/"` - componente PRODUCTS
+
+`"/detail/:id"` - componente DetailProduct
+
+`"/login"` - componente Login 
+
+`"/register"` - componente Register
+
+`"/category"` - componente Categories
+
+`"/create_product"` - componente CreateProduct
+
+`"/edit_product/:id"` - componente CreateProduct
+
+`"/history"` - componente OrderHistory
+
+`"/history/:id"` - componente OrderDetails
+
+`"/cart"` - componente Cart
+
+`"*"` - componente NotFound
+
+
+   
+
+### Dependencias Frontend 
+    
+    "axios": "^0.21.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "react-paypal-express-checkout": "^1.0.5"
+    
+
+
+### TO DO 
+- Perfil de usuario donde pueda cambiar la contraseña ; 
+- Cambiar las alertas generadas por mensajes ;
+- Añadir footer 
+- Añadir un carousel de los ultimos productos añadidos 
