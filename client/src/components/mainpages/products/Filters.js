@@ -1,20 +1,25 @@
 import React, {useContext} from 'react'
+import { useState } from 'react'
 import {GlobalState} from '../../../GlobalState'
 
 function Filters() {
     const state = useContext(GlobalState)
     const [categories] = state.categoriesAPI.categories
-
+    
     const [category, setCategory] = state.productsAPI.category
     const [sort, setSort] = state.productsAPI.sort
     const [search, setSearch] = state.productsAPI.search
+
+    
 
 
     const handleCategory = e => {
         setCategory(e.target.value)
         setSearch('')
+        setError(false)
     }
-
+    
+    
     return (
         <div className="filter_menu">
             <div className="row">
