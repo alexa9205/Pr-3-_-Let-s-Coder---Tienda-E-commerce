@@ -186,7 +186,7 @@ Estilo con `CSS3`.<br>
 
 
 ### TO DO 
-- Perfil de usuario donde pueda cambiar la contraseña ; 
-- Cambiar las alertas generadas por mensajes ;
+- Perfil de usuario donde se pueda cambiar la contraseña ; 
+- Cambiar las alertas generadas o errores por mensajes ;
 - Añadir footer 
 - Añadir un carousel de los ultimos productos añadidos 
