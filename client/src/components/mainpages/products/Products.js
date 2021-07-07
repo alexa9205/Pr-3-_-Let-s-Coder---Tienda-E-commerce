@@ -80,7 +80,9 @@ function Products() {
         </div>
 
         <LoadMore />
-        {products.length === 0 && <Loading />}
+        {products.length === 0 && <Loading />} 
+        {/* hay que cambiar esta condicion porque si la busqueda por filtro es cero se muestra siempre el loader */}
+        
         </>
     )
 }

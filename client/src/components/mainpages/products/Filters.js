@@ -1,5 +1,4 @@
 import React, {useContext} from 'react'
-import { useState } from 'react'
 import {GlobalState} from '../../../GlobalState'
 
 function Filters() {
