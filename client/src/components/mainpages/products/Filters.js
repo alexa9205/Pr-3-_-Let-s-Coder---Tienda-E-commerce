@@ -16,7 +16,6 @@ function Filters() {
     const handleCategory = e => {
         setCategory(e.target.value)
         setSearch('')
-        setError(false)
     }
     
     
