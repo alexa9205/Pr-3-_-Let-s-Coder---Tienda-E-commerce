@@ -18,6 +18,9 @@ function CreateProduct() {
     const [categories] = state.categoriesAPI.categories
     const [images, setImages] = useState(false)
     const [loading, setLoading] = useState(false)
+    
+    const [successMessage, setSuccessMessage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(null)
 
 
     const [isAdmin] = state.userAPI.isAdmin
@@ -49,16 +52,16 @@ function CreateProduct() {
     const handleUpload = async e =>{
         e.preventDefault()
         try {
-            if(!isAdmin) return alert("No eres administrador! ")
+            if(!isAdmin) return setErrorMessage("No eres administrador! ")
             const file = e.target.files[0]
             
-            if(!file) return alert("File not exist.")
+            if(!file) return setErrorMessage("File not exist.")
 
             if(file.size > 1024 * 1024) // 1mb
-                return alert("Size too large!")
+                return setErrorMessage("Size too large!")
 
             if(file.type !== 'image/jpeg' && file.type !== 'image/png') // 1mb
-                return alert("El formato del archivo es incorrecto!")
+                return setErrorMessage("El formato del archivo es incorrecto!")
 
             let formData = new FormData()
             formData.append('file', file)
@@ -71,13 +74,13 @@ function CreateProduct() {
             setImages(res.data)
 
         } catch (err) {
-            alert(err.response.data.msg)
+            setErrorMessage(err.response.data.msg)
         }
     }
 
     const handleDestroy = async () => {
         try {
-            if(!isAdmin) return alert("No eres administrador!")
+            if(!isAdmin) return setErrorMessage("No eres administrador!")
             setLoading(true)
             await axios.post('/api/destroy', {public_id: images.public_id}, {
                 headers: {Authorization: token}
@@ -85,7 +88,7 @@ function CreateProduct() {
             setLoading(false)
             setImages(false)
         } catch (err) {
-            alert(err.response.data.msg)
+            setErrorMessage(err.response.data.msg)
         }
     }
 
@@ -97,22 +100,27 @@ function CreateProduct() {
     const handleSubmit = async e =>{
         e.preventDefault()
         try {
-            if(!isAdmin) return alert("No eres administrador!")
-            if(!images) return alert("No has subido una imagen del producto!")
+            if(!isAdmin) return setErrorMessage("No eres administrador!")
+            if(!images) return setErrorMessage("No has subido una imagen del producto!")
 
             if(onEdit){
                 await axios.put(`/api/products/${product._id}`, {...product, images}, {
                     headers: {Authorization: token}
                 })
+                setSuccessMessage("Producto actualizado!")
             }else{
                 await axios.post('/api/products', {...product, images}, {
                     headers: {Authorization: token}
                 })
+                setSuccessMessage("Producto creado!")
             }
             setCallback(!callback)
-            history.push("/")
+            setTimeout(() => {
+                history.push("/")
+            }, 3000);
+           
         } catch (err) {
-            alert(err.response.data.msg)
+            setErrorMessage(err.response.data.msg)
         }
     }
 
@@ -166,6 +174,14 @@ function CreateProduct() {
                             ))
                         }
                     </select>
+                </div>
+
+                <div className="msg_ok" style={{display: successMessage ? 'block' : 'none'}} role="alert">
+                    {successMessage}
+                </div>
+
+                <div className="msg_alert" style={{display: errorMessage ? 'block' : 'none'}} role="alert">
+                    {errorMessage}
                 </div>
 
                 <button type="submit">{onEdit? "Actualizar" : "Crear"}</button>

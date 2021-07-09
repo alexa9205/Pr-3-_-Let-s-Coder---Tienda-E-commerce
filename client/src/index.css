@@ -36,6 +36,9 @@ button{
 /* ---------------- Header ------------ */
 @import url("./components/headers/header.css");
 
+/* -------------- Footer --------------- */
+@import url("./components/footer/footer.css");
+
 /* ------------- Products -------------- */
 
 @import url("./components/mainpages/products/products.css");
@@ -60,6 +63,8 @@ button{
 
 /* ------------------- Create Product -------------- */
 @import url("./components/mainpages/createProduct/createProduct.css");
+
+
 
 /* ----------------- Responsive ------------------ */
 @media (max-width: 820px){

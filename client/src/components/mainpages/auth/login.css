@@ -38,3 +38,19 @@
     font-weight: 700;
     font-size: 20px;
 }
+
+.msg_ok{
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    background-color: rgba(132, 233, 233, 0.829);
+    padding: 10px;
+}
+
+.msg_alert{
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+    background-color: rgb(233, 60, 60);
+    padding: 10px;
+}

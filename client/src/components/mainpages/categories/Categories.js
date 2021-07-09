@@ -10,6 +10,8 @@ function Categories() {
     const [callback, setCallback] = state.categoriesAPI.callback
     const [onEdit, setOnEdit] = useState(false)
     const [id, setID] = useState('')
+    const [successMessage, setSuccessMessage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState(null)
 
     const createCategory = async e =>{
         e.preventDefault()
@@ -18,19 +20,19 @@ function Categories() {
                 const res = await axios.put(`/api/category/${id}`, {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                setSuccessMessage(res.data.msg)
             }else{
                 const res = await axios.post('/api/category', {name: category}, {
                     headers: {Authorization: token}
                 })
-                alert(res.data.msg)
+                setSuccessMessage(res.data.msg)
             }
             setOnEdit(false)
             setCategory('')
             setCallback(!callback)
             
         } catch (err) {
-            alert(err.response.data.msg)
+            setErrorMessage(err.response.data.msg)
         }
     }
 
@@ -45,10 +47,10 @@ function Categories() {
             const res = await axios.delete(`/api/category/${id}`, {
                 headers: {Authorization: token}
             })
-            alert(res.data.msg)
+            setSuccessMessage(res.data.msg)
             setCallback(!callback)
         } catch (err) {
-            alert(err.response.data.msg)
+            setErrorMessage(err.response.data.msg)
         }
     }
 
@@ -75,6 +77,14 @@ function Categories() {
                     ))
                 }
             </div>
+
+            <div className="msg_ok" style={{display: successMessage ? 'block' : 'none'}} role="alert">
+                    {successMessage}
+                </div>
+
+                <div className="msg_alert" style={{display: errorMessage ? 'block' : 'none'}} role="alert">
+                    {errorMessage}
+                </div>
         </div>
     )
 }

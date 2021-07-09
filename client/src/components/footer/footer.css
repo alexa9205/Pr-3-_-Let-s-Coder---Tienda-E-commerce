@@ -1,0 +1,33 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   
+}
+
+.name_shop{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(179, 172, 172, 0.945);
+    border-radius: 10%;
+    box-shadow: 0 0 25px rgb(75, 72, 72);
+}
+
+.name_shop p{
+    text-transform: uppercase;
+    color: black;
+    letter-spacing: 2px;
+}
+
+.name_shop a{
+    color: black;
+    font-weight: 600;
+}
+.name_shop button{
+    background-color: rgba(13, 194, 194, 0.438);
+    border-radius: 10%;
+    box-shadow: 0 0 5px rgb(75, 72, 72);
+}
